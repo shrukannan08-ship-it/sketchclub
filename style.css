@@ -1,7 +1,226 @@
 body {
-  background-color: lightblue;
-  font-family: Arial, sans-serif;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
-h1 {
-  color: darkblue;
+
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: radial-gradient(circle at center, #111, #000);
+}
+
+nav {
+  position: fixed;
+  top: 0; width: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(20,20,20,0.7);
+  display: flex; justify-content: center; gap: 30px;
+  padding: 15px; z-index: 1000;
+}
+nav a { color: #fff; text-decoration: none; transition: color 0.3s; }
+nav a:hover { color: #ff6600; }
+
+section { padding: 80px 20px; }
+h1,h2,h3 { text-align: center; }
+
+.btn {
+  background: linear-gradient(135deg,#ff6600,#00b3b3);
+  border:none; padding:12px 24px; border-radius:30px;
+  color:#fff; cursor:pointer; transition:transform 0.3s;
+}
+.btn:hover { transform: scale(1.1); }
+
+.hero {
+  height:100vh; display:flex; flex-direction:column;
+  justify-content:center; align-items:center;
+  animation: fadeIn 2s ease-in;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+.about, .contact form { max-width:800px; margin:auto; text-align:center; }
+
+.events, .team { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+.event-card, .team-card {
+  background: rgba(255,255,255,0.05); border-radius:15px;
+  padding:20px; width:250px; transition:transform 0.3s, box-shadow 0.3s;
+}
+.event-card:hover { transform:translateY(-10px); box-shadow:0 10px 20px rgba(255,102,0,0.5); }
+.team-card:hover { transform:scale(1.05); box-shadow:0 10px 20px rgba(0,179,179,0.5); }
+
+.gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; }
+.gallery img { width:100%; border-radius:10px; transition:transform 0.3s; cursor:pointer; }
+.gallery img:hover { transform:scale(1.05); }
+
+.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+  background:rgba(0,0,0,0.9); justify-content:center; align-items:center; }
+.modal img { max-width:90%; border-radius:10px; }
+
+.contact input, .contact textarea {
+  padding:10px; border-radius:10px; border:none; outline:none;
+}
+
+footer { background:rgba(20,20,20,0.9); text-align:center; padding:20px; font-size:14px; }
+
+@media(max-width:600px){ nav{flex-wrap:wrap;} .events,.team{flex-direction:column;align-items:center;} }
+/* Contact Section */
+#contact {
+  background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+  padding: 80px 20px;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.contact-card {
+  flex: 1;
+  min-width: 300px;
+  background: rgba(255,255,255,0.05);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0,179,179,0.4);
+}
+
+.contact-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-card input,
+.contact-card textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
+}
+
+.contact-card input::placeholder,
+.contact-card textarea::placeholder {
+  color: #bbb;
+}
+
+.contact-info {
+  flex: 1;
+  min-width: 250px;
+  color: #fff;
+  text-align: left;
+}
+
+.contact-info h3 {
+  color: #ff6600;
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #00b3b3;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+@media(max-width:768px) {
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contact-info {
+    text-align: center;
+  }
+}
+/* === Animations for Team and Gallery === */
+.team-card, .gallery img {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.team-card.visible, .gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Extra hover effect for gallery */
+.gallery img:hover {
+  transform: scale(1.08) rotate(1deg);
+  box-shadow: 0 8px 20px rgba(0,179,179,0.6);
+}
+/* === Our Team Section Styling === */
+#team h2 {
+  font-family: 'Poppins', sans-serif;   /* modern clean font */
+  font-size: 2.5rem;
+  color: #ff6600;                       /* glowing orange accent */
+  text-shadow: 0 0 10px rgba(255,102,0,0.7);
+  margin-bottom: 30px;
+}
+
+.team-card h3 {
+  font-family: 'Montserrat', sans-serif; /* bold modern font */
+  font-size: 1.3rem;
+  color: #00b3b3;                         /* teal accent for names */
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  color: #ccc;                            /* softer gray for roles */
+}
+/* Hero tagline animation */
+.hero h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  color: #00b3b3;
+  opacity: 0;
+  animation: fadeInOut 6s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  25% { opacity: 1; transform: translateY(0); }
+  75% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* Upcoming Events section */
+#events h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.2rem;
+  color: #ff6600;
+  text-shadow: 0 0 10px rgba(255,102,0,0.7);
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: fadeSlideIn 2s forwards;
+}
+
+.event-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  color: #00b3b3;
+}
+
+.event-card p {
+  font-family: 'Segoe UI', sans-serif;
+  color: #ccc;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
