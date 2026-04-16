@@ -2,15 +2,102 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My Web Page</title>
-  <!-- Link CSS -->
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sketch Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <!-- Correct relative path to CSS -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Hello, World!</h1>
-  <button onclick="sayHello()">Click Me</button>
 
-  <!-- Link JS -->
+  <canvas id="bg-canvas"></canvas>
+
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#team">Team</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="hero">
+    <h1>Sketch Club</h1>
+    <h3>Design · Develop · Deliver</h3>
+    <button class="btn">Join Us</button>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <div class="about">
+      <p>Sketch Club is a creative collective of designers, developers, and artists who believe in the power of visual communication.</p>
+    </div>
+  </section>
+
+  <!-- Events -->
+  <section id="events">
+    <h2>Upcoming Events</h2>
+    <div class="events">
+      <div class="event-card"><h3>Sketch Workshop</h3><p>April 25, 2026</p></div>
+      <div class="event-card"><h3>UI Designing</h3><p>May 10, 2026</p></div>
+      <div class="event-card"><h3>Pixel Arts</h3><p>May 20, 2026</p></div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+  <h2>Our Coding Gallery</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1581090700227-4c4f7a3a3f3b?auto=format&fit=crop&w=600&q=80" alt="Coding Workshop">
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80" alt="Programming Session">
+    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" alt="Hackathon Collaboration">
+    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Developers Coding Together">
+    <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=600&q=80" alt="UI/UX Coding Design">
+    <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437b5?auto=format&fit=crop&w=600&q=80" alt="Laptop with Code Editor">
+  </div>
+  <div class="modal" id="modal"><img id="modal-img" src=""></div>
+</section>
+
+  <!-- Team -->
+  <section id="team">
+    <h2>Our Team</h2>
+    <div class="team">
+      <div class="team-card"><h3>Aarav Sharma</h3><p>President</p></div>
+      <div class="team-card"><h3>Priya Nair</h3><p>Design Lead</p></div>
+      <div class="team-card"><h3>Rohan Gupta</h3><p>Tech Lead</p></div>
+      <div class="team-card"><h3>Sneha Patel</h3><p>Events Coordinator</p></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+  <h2>Get in Touch</h2>
+  <div class="contact-container">
+    <div class="contact-card">
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <textarea placeholder="Your Message" rows="5" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+    <div class="contact-info">
+      <h3>📧 Reach Us</h3>
+      <p>Email: <a href="mailto:sketchclub@srmist.edu.in">sketchclub@srmist.edu.in</a></p>
+      <p>Location: SRM University, Chennai</p>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <p>&copy; 2026 Sketch Club. All rights reserved.</p>
+  </footer>
+
+  <!-- Correct relative path to JS -->
   <script src="script.js"></script>
 </body>
 </html>
